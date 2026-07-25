@@ -18,10 +18,6 @@ interface TrackingMapProps {
 export function TrackingMap({ status, customerName }: TrackingMapProps) {
   const theme = useTheme();
 
-  if (status === 'Cancelled' || status === 'Processing' || status === 'Delivered') {
-    return null;
-  }
-
   const progress = useSharedValue(status === 'Out for Delivery' ? 0.75 : 0.35);
   const pulse = useSharedValue(1);
 
@@ -67,6 +63,11 @@ export function TrackingMap({ status, customerName }: TrackingMapProps) {
       opacity: 1 - (pulse.value - 1)
     };
   });
+
+  // Early return moved below all hooks to satisfy Rules of Hooks
+  if (status === 'Cancelled' || status === 'Processing' || status === 'Delivered') {
+    return null;
+  }
 
   return (
     <View style={[styles.container, { backgroundColor: theme.backgroundElement, borderColor: theme.cardBorder }]}>
