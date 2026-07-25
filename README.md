@@ -6,9 +6,7 @@ A premium, highly polished 2-screen **Order Tracker** mobile application built w
 
 ## 🚀 Live Preview & Code Links
 
-- **GitHub Repository**: `[Include your public github repo URL here]`
-- **Live Deployed Web Preview**: `[Include your Vercel/Netlify/Expo public link here]`
-- **Mock API Endpoint**: `[Include your mockapi.io or raw JSON URL here]`
+- **GitHub Repository**: https://github.com/SidakSethi-Singh/mobile-order-tracker
 
 ---
 
