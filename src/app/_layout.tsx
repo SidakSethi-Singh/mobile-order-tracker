@@ -17,7 +17,6 @@ export default function RootLayout() {
     <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
       <AnimatedSplashOverlay />
       <OfflineBanner />
-      
       <Stack
         screenOptions={{
           headerShown: false,
