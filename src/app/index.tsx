@@ -88,6 +88,19 @@ export default function OrdersListScreen() {
     loadOrders(true);
   };
 
+  const resetDevSettings = async () => {
+    setDevOffline(false);
+    setDevError(false);
+    setMockUrlInput('');
+    await api.setDevSettings({
+      isOffline: false,
+      isError: false,
+      mockUrl: undefined,
+    });
+    // Trigger re-fetch
+    loadOrders(true);
+  };
+
   // Filter and search logic
   const filteredOrders = orders.filter((order) => {
     const matchesSearch =
@@ -313,6 +326,12 @@ export default function OrdersListScreen() {
             style={[styles.retryButton, { backgroundColor: theme.primary }]}
           >
             <Text style={styles.retryButtonText}>Retry Fetch</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={resetDevSettings}
+            style={[styles.retryButton, { backgroundColor: theme.backgroundElement, marginTop: 8 }]}
+          >
+            <Text style={[styles.retryButtonText, { color: theme.text }]}>Reset Simulation Settings</Text>
           </TouchableOpacity>
         </View>
       ) : filteredOrders.length === 0 ? (
