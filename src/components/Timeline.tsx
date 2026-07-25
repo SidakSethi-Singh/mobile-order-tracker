@@ -123,7 +123,7 @@ export function Timeline({ order }: TimelineProps) {
       >
         <View style={styles.leftColumn}>
           {/* Vertical line connector */}
-          {!isLast && (
+          {!isLast ? (
             <View
               style={[
                 styles.verticalLine,
@@ -135,7 +135,7 @@ export function Timeline({ order }: TimelineProps) {
                 },
               ]}
             />
-          )}
+          ) : null}
 
           {/* Timeline node */}
           <View
@@ -148,10 +148,10 @@ export function Timeline({ order }: TimelineProps) {
               },
             ]}
           >
-            {isCompleted && !isActive && (
+            {isCompleted && !isActive ? (
               <View style={[styles.innerCheck, { backgroundColor: theme.primary }]} />
-            )}
-            {isActive && <View style={styles.innerPulse} />}
+            ) : null}
+            {isActive ? <View style={styles.innerPulse} /> : null}
           </View>
         </View>
 
