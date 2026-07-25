@@ -100,10 +100,7 @@ export default function OrderDetailsScreen() {
   if (loading) {
     return (
       <SafeAreaView style={[styles.safeArea, { backgroundColor: theme.background }]}>
-        <View style={styles.centerContainer}>
-          <ActivityIndicator size="large" color={theme.primary} />
-          <Text style={[styles.loadingText, { color: theme.textSecondary }]}>Loading order details...</Text>
-        </View>
+        <View style={styles.centerContainer}><ActivityIndicator size="large" color={theme.primary} /><Text style={[styles.loadingText, { color: theme.textSecondary }]}>Loading order details...</Text></View>
       </SafeAreaView>
     );
   }
@@ -111,19 +108,7 @@ export default function OrderDetailsScreen() {
   if (error || !order) {
     return (
       <SafeAreaView style={[styles.safeArea, { backgroundColor: theme.background }]}>
-        <View style={styles.centerContainer}>
-          <View style={[styles.errorIndicator, { backgroundColor: theme.cancelled }]} />
-          <Text style={[styles.errorTitle, { color: theme.text }]}>Order Details Error</Text>
-          <Text style={[styles.errorSubtitle, { color: theme.textSecondary }]}>
-            {error || 'Unable to retrieve order details.'}
-          </Text>
-          <TouchableOpacity
-            onPress={() => router.back()}
-            style={[styles.backButton, { backgroundColor: theme.primary }]}
-          >
-            <Text style={styles.backButtonText}>Go Back</Text>
-          </TouchableOpacity>
-        </View>
+        <View style={styles.centerContainer}><View style={[styles.errorIndicator, { backgroundColor: theme.cancelled }]} /><Text style={[styles.errorTitle, { color: theme.text }]}>Order Details Error</Text><Text style={[styles.errorSubtitle, { color: theme.textSecondary }]}>{error || 'Unable to retrieve order details.'}</Text><TouchableOpacity onPress={() => router.back()} style={[styles.backButton, { backgroundColor: theme.primary }]}><Text style={styles.backButtonText}>Go Back</Text></TouchableOpacity></View>
       </SafeAreaView>
     );
   }

@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const filePath = path.join(__dirname, '../src/app/index.tsx');
+const filePath = path.join(__dirname, '../src/app/_layout.tsx');
 const content = fs.readFileSync(filePath, 'utf8');
 
 const lines = content.split('\n');
